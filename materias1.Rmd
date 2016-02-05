@@ -1,0 +1,36 @@
+---
+title: "Materias"
+author: "Ruben Carranza"
+date: "5 de febrero de 2016"
+output: html_document
+---
+
+#Benemerita Universidad Autonoma de Puebla
+##Facultad de Ciecias Fisico Matematicas
+###Licenciatura en Actuaria
+#### Programacion_Actuarial_III
+
+Materias y calificaciones aprobadas en la carrera
+
+* Introduccion a la profecion Actuarial 6
+* Programacion Actuarial I              8
+* Conceptos de Calculo                  8
+* Matematicas Basicas                  10
+* Problemas de Matematicas basicas     10
+* DHPC                                  8
+* Formacion Humana y Social             9
+* Ingles I                              7
+* Calculo diferencial                   6
+* Teoria de Ecuaciones                  6
+* DHTICS                                9
+* Registros del Español                 8
+* Calculo Integral                      8
+* Algebra Lineal                        6
+* Programacion II                       8
+* Teoria del Interes I                  7
+* Teoria del Interes II                 7
+* Sistema Financiero Mexicano           9
+* Geometria Analitica                   8
+* Microeconomia                         6
+
+###Promedio 7.7
