@@ -1,9 +1,23 @@
-# Programacion_Actuarial_III
+---
+output: 
+  html_document: 
+    theme: cerulean
+---
+#Benemerita Universidad Autonoma de Puebla
+##Facultad de Ciecias Fisico Matematicas
+###Licenciatura en Actuaria
+#### Programacion_Actuarial_III
+
 Primavera 2016 
-primera prueba de la tarea para hacer un commit
 
-:D
+Dias de la semana
 
-si lo logré, pero me tardé un poco
+* Lunes
+* Martes
+* Miercoles
+* Jueves
+* Viernes
+* Sabado
+* Domingo
 
-:(
+Materias Aprobadas en el Curso
