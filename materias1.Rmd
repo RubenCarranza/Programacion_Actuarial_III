@@ -12,25 +12,39 @@ output: html_document
 
 Materias y calificaciones aprobadas en la carrera
 
-* Introduccion a la profecion Actuarial 6
-* Programacion Actuarial I              8
-* Conceptos de Calculo                  8
+###Primer Semestre
+
+* DHPC                                  8
+
+###Segundo Semestre
+
 * Matematicas Basicas                  10
 * Problemas de Matematicas basicas     10
-* DHPC                                  8
-* Formacion Humana y Social             9
 * Ingles I                              7
+* Programacion Actuarial I              8
+* Formacion Humana y Social             9
+
+###Tercer Semestre
+
+* Introduccion a la profecion Actuarial 6
+* Conceptos de Calculo                  8
 * Calculo diferencial                   6
+* Registros del Español                 8
+* Teoria del Interes I                  7
+
+###Cuarto Semestre
+
 * Teoria de Ecuaciones                  6
 * DHTICS                                9
-* Registros del Español                 8
 * Calculo Integral                      8
+* Geometria Analitica                   8
+* Teoria del Interes II                 7
+
+###Quinto semestre
+
 * Algebra Lineal                        6
 * Programacion II                       8
-* Teoria del Interes I                  7
-* Teoria del Interes II                 7
 * Sistema Financiero Mexicano           9
-* Geometria Analitica                   8
 * Microeconomia                         6
 
 ###Promedio 7.7
