@@ -10,7 +10,7 @@ output: html_document
 ###Licenciatura en Actuaria
 #### Programacion_Actuarial_III
 
-Materias y calificaciones aprobadas en la carrera
+####Materias y calificaciones aprobadas en la carrera
 
 ###Primer Semestre
 
