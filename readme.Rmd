@@ -1,0 +1,96 @@
+#Benemerita Universidad Autonoma de Puebla
+##Facultad de Ciencias Fisico Matematicas 
+###Programacion Actuarial III
+###Archivo Readme: Reconocimiento de Actividad Humana con Celulares
+
+Para una mayor explicacion sobre la base de datos se puede entrar a la siguiente liga http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+El siguiente programa contiene los siguientes archivos, los cuales se pidenen el proyecto:
+
+`UCI HAR Dataset`
+
+`Readme.md`
+
+`Codebook.md`
+
+`Run_analisi.R`
+
+###Correr Run_analisis.R
+
+Para hacer el analisis que se pide en el proyecto se debe correr el archivo `Run_analisis.R`
+El cual une los datos del test con los del training , para crear un solo conjuto de datos, ademas extrae unicamente las medidas de media y desviación estándar de cada medición.
+Con lo anterior para hacer mas facil el entendimiento de los datos se le coloca etiquetas en base a los datos con nombres que les describan.
+Y por ultimo crea una segunda base de datos independiente con el promedio de cada variable para cada actividad y cada sujeto.
+
+
+##Codigo de Run_analisis.R
+
+*Vamos a unir los test con los training 
+
+~~~
+setwd("~/test-repo/Caso 3/UCI HAR Dataset")    
+    g<-getwd()
+    
+        training_set <- read.table(paste(g,"train/X_train.txt",sep = "/"),quote ="\"")
+        test_set <- read.table(paste(g,"test/X_test.txt",sep = "/"),quote ="\"")
+~~~
+
+Crearemos data_set el cual sera el que ocupemos para realizar las demas partes del proyecto
+
+~~~
+ data_set <- rbind(training_set,test_set) #Toma los argumentos y combina por filas
+       
+        rm(test_set,training_set)
+~~~
+
+Extraemos las medidas de media y desviación estándar de cada medición.
+
+~~~
+ features_name <- read.table(paste(g,"features.txt",sep = "/"),quote ="\"")[,2]
+        colnames(data_set) <- features_name
+         Medidas_Seleccionadas <- grepl('-(mean|std)\\(',features_name) 
+          data_set <- subset(data_set,select=Medidas_Seleccionadas) 
+~~~
+ 
+Ahora colocaremos las etiquetas 
+
+~~~
+ colnames(data_set) <- gsub("mean", "Mean", colnames(data_set))
+        colnames(data_set) <- gsub("std", "Std", colnames(data_set))
+        colnames(data_set) <- gsub("t", "Time", colnames(data_set))
+        colnames(data_set) <- gsub("f", "Frequency", colnames(data_set))
+        colnames(data_set) <- gsub("\\(\\)", "", colnames(data_set))
+        colnames(data_set) <- gsub("-", "", colnames(data_set))
+        colnames(data_set) <- gsub("BodyBody", "Body", colnames(data_set))
+        colnames(data_set) <- gsub("^", "MeanOf", colnames(data_set))
+        colnames(data_set)
+~~~
+
+Nombraremos las actividades 
+
+~~~
+ features_name <- read.table(paste(g,"features.txt",sep = "/"),quote ="\"")[,2]
+        colnames(data_set) <- features_name
+         Medidas_Seleccionadas <- grepl('-(mean|std)\\(',features_name) 
+          data_set <- subset(data_set,select=Medidas_Seleccionadas) 
+labels <- c("WALKING", "WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDING","LAYING)
+        actividades <- labels[actividades]
+        data_set <- cbind(Actividad = actividades,data_set)
+~~~
+
+Con los pasos anteriores sacaremos el promedio de cada variable 
+
+~~~
+
+voluntario_train <- read.table(paste(g,"train/subject_train.txt",sep = "/"),quote ="\"")
+        voluntario_test <- read.table(paste(g,"test/subject_test.txt",sep = "/"),quote ="\"")
+        voluntarios <- rbind(voluntario_train,voluntario_test)[,1]
+        data_set <- cbind(Voluntario = voluntarios,data_set) 
+        
+
+library(dplyr) 
+        prom_data_set <- data_set %>% group_by(Voluntario,Actividad) %>% summarise_each(funs(mean))
+       
+        
+ write.table(prom_data_set,row.name = FALSE,file = "tidy_data_set.txt")         
+~~~
